@@ -9,6 +9,8 @@ namespace Projeto.Properties.Entity
     {
         public int Id {get; set; }
         public string Descricao {get; set; }
+        public string Prioridade {get; set; }
+        public string Status {get; set; }
         public int CategoriaId {get; set; }
         public virtual Categoria Categoria {get; set; }
     }
