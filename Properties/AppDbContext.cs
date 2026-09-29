@@ -15,8 +15,20 @@ namespace Projeto.Properties
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Categoria>().HasMany(c => c.Chamados).WithOne(ch => ch.Categoria).HasForeignKey(ch => ch.CategoriaId);base.OnModelCreating(modelBuilder);}
+            modelBuilder.Entity<Categoria>()
+                        .HasMany(c => c.Chamados)
+                        .WithOne(ch => ch.Categoria)
+                        .HasForeignKey(ch => ch.CategoriaId);
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Chamado>()
+                        .HasMany(ch => ch.Interacoes)
+                        .WithOne(i => i.Chamado)
+                        .HasForeignKey(i => i.ChamadoId);
+            base.OnModelCreating(modelBuilder);
+        }
         public DbSet<Chamado> Chamados {get; set; }
         public DbSet<Categoria> categorias {get; set; }
+        public DbSet<Interacoes> Interacoes {get; set; }
     }
 }

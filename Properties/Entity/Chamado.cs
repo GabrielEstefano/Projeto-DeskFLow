@@ -17,5 +17,6 @@ namespace Projeto.Properties.Entity
         public string Solucao {get; set; }
         public int CategoriaId {get; set; }
         public virtual Categoria Categoria {get; set; }
+        public ICollection<Interacoes> Interacoes { get; set; } = new List<Interacoes>();
     }
 }

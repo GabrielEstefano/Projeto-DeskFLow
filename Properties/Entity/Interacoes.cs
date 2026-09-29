@@ -9,8 +9,10 @@ namespace Projeto.Properties.Entity
     {
         public int Id {get; set; }
         public string ChamadoId {get; set; }
-        public string Usuario {get; set; }
+        public string Autor {get; set; }
         public string mensagem {get; set; }
         public DateTime DataRegistro {get; set; }
+
+        public virtual Chamado Chamado {get; set; }
     }
 }
