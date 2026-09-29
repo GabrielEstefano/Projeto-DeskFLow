@@ -8,7 +8,7 @@ namespace Projeto.Properties.Entity
     public class Interacoes
     {
         public int Id {get; set; }
-        public string ChamadoId {get; set; }
+        public int ChamadoId {get; set; }
         public string Autor {get; set; }
         public string mensagem {get; set; }
         public DateTime DataRegistro {get; set; }
