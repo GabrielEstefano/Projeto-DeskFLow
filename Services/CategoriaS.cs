@@ -32,5 +32,19 @@ namespace Projeto.Services
 
             return await _categoriaR.CadastrarAsync(categoria);
         }
+        public async Task AtualizarAsync(int id, string nome)
+        {
+            if (string.IsNullOrWhiteSpace(nome))
+            {throw new ArgumentException("O nome da categoria é obrigatório!");}
+
+            var categoria = await _categoriaR.BuscarAsyncPorId(id);
+
+            if (categoria == null)
+            {return false;}
+
+            categoria.Nome = nome.Trim();
+            await _categoriaR.AtualuzarAsync(categoria);
+            return true;
+        }
     }
 }
