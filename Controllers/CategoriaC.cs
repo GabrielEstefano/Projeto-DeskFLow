@@ -18,7 +18,7 @@ namespace Projeto.Controllers
             var categorias = await _service.ListarAsync();
             return Ok(categorias.Select(c => new {c.Id, c.Nome}));
         }
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> BuscarPorId(int id)
         {
             var categoria = await _service.BuscarPorIdAsync(id);
@@ -43,5 +43,18 @@ namespace Projeto.Controllers
         }
         public class CategoriaRequest
         {public string Nome { get; set; } = string.Empty;}
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> Atualizar(int id, [FromBody] CategoriaRequest dados)
+        {
+            try
+            {
+                bool atualizado = await _service.AtualizarAsync(id, dados.Nome);
+                if (!atualizado)
+                {return NotFound(new { Message = "Categoria não encontrada." });}
+                return NoContent();
+            }
+            catch (ArgumentException erro)
+            {return BadRequest(new { mensagem = erro.Message });}
+        }
     }
 }

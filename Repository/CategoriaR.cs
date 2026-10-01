@@ -22,11 +22,11 @@ namespace Projeto.Repositories
             await _context.SaveChangesAsync();
             return categoria;
         }
-        public async Task AtualuzarAsync(Categoria categoria)
+        public async Task AtualizarAsync(Categoria categoria)
         {
             _context.categorias.Update(categoria);
             await _context.SaveChangesAsync();
         }
-        
+
     }
 }

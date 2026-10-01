@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Projeto.Properties.Entity;
 using Projeto.Repositories;
 
@@ -32,7 +33,7 @@ namespace Projeto.Services
 
             return await _categoriaR.CadastrarAsync(categoria);
         }
-        public async Task AtualizarAsync(int id, string nome)
+        public async Task<bool> AtualizarAsync(int id, string nome)
         {
             if (string.IsNullOrWhiteSpace(nome))
             {throw new ArgumentException("O nome da categoria é obrigatório!");}
@@ -43,7 +44,7 @@ namespace Projeto.Services
             {return false;}
 
             categoria.Nome = nome.Trim();
-            await _categoriaR.AtualuzarAsync(categoria);
+            await _categoriaR.AtualizarAsync(categoria);
             return true;
         }
     }
