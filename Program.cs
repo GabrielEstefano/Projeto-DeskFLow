@@ -12,6 +12,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(conn
 builder.Services.AddControllers();
 builder.Services.AddScoped<CategoriaR>();
 builder.Services.AddScoped<CategoriaS>();
+builder.Services.AddScoped<ChamadoR>();
 var app = builder.Build();
 
 app.MapOpenApi();
