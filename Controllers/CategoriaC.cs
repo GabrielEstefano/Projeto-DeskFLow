@@ -56,5 +56,18 @@ namespace Projeto.Controllers
             catch (ArgumentException erro)
             {return BadRequest(new { mensagem = erro.Message });}
         }
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Excluir(int id)
+        {
+            try
+            {
+                bool excluido = await _service.ExcluirAsync(id);
+                if (!excluido)
+                {return NotFound(new { Message = "Categoria não encontrada." });}
+                return NoContent();
+            }
+            catch (InvalidOperationException erro)
+            {return BadRequest(new { mensagem = erro.Message });}
+        }
     }
 }

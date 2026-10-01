@@ -57,5 +57,6 @@ namespace Projeto.Services
             await _categoriaR.ExcluirAsync(categoria);
             return true;
         }
+        
     }
 }
