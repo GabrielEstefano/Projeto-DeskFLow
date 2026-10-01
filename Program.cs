@@ -13,6 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<CategoriaR>();
 builder.Services.AddScoped<CategoriaS>();
 builder.Services.AddScoped<ChamadoR>();
+builder.Services.AddScoped<ChamadoS>();
 var app = builder.Build();
 
 app.MapOpenApi();
