@@ -3,11 +3,7 @@ using Projeto.Services;
 
 namespace Projeto.Controllers
 {
-    public class CategoriaC : ControllerBase
-    {
-        public string Nome { get; set; } = string.Empty;
-    }
-
+    
     [ApiController]
     [Route("api/categorias")]
     public class CategoriasController : ControllerBase
