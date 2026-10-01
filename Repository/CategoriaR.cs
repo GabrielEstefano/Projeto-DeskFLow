@@ -22,9 +22,19 @@ namespace Projeto.Repositories
             await _context.SaveChangesAsync();
             return categoria;
         }
+
         public async Task AtualizarAsync(Categoria categoria)
         {
             _context.categorias.Update(categoria);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<bool> AhChamadosAsync(int id)
+        {return await _context.Chamados.AnyAsync(c => c.CategoriaId == id);}
+
+        public async Task ExcluirAsync(Categoria categoria)
+        {
+            _context.categorias.Remove(categoria);
             await _context.SaveChangesAsync();
         }
 
